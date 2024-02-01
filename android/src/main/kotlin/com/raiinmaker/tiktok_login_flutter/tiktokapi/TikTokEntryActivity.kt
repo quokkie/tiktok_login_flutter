@@ -7,10 +7,11 @@ import android.util.Log
 import com.tiktok.open.sdk.auth.AuthApi
 import com.tiktok.open.sdk.auth.AuthRequest
 import com.tiktok.open.sdk.auth.utils.PKCEUtils
+import io.flutter.embedding.android.FlutterActivity
 import io.flutter.plugin.common.MethodChannel
 
 
-class TikTokEntryActivity : Activity() {
+class TikTokEntryActivity : FlutterActivity() {
 
     companion object {
         var result: MethodChannel.Result? = null
