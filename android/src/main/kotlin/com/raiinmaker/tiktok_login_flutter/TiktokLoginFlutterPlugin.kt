@@ -67,9 +67,12 @@ class TiktokLoginFlutterPlugin : FlutterPlugin, MethodCallHandler, ActivityAware
             TikTokEntryActivity.result = result
         }
 
-      Log.d("TiktokLoginFlutter", "Authorize will start")
+        Log.d("TiktokLoginFlutter", "Authorize will start ${safeActivity is TikTokEntryActivity}, $safeActivity")
         if (safeActivity is TikTokEntryActivity) {
+            Log.d("TiktokLoginFlutter", "Authorize will start inside")
             safeActivity.authorize(scope, redirectUrl, safeClientKey)
+        } else {
+            Log.d("TiktokLoginFlutter", "Authorize will not start")
         }
     }
 
