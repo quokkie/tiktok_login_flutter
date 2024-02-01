@@ -11,7 +11,7 @@ import io.flutter.embedding.android.FlutterActivity
 import io.flutter.plugin.common.MethodChannel
 
 
-class TikTokEntryActivity : FlutterActivity() {
+class TikTokEntryActivity : Activity() {
 
     companion object {
         var result: MethodChannel.Result? = null
