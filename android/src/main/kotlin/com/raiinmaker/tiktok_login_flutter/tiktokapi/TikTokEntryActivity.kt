@@ -25,7 +25,11 @@ class TikTokEntryActivity : Activity() {
         val scope = intent.getStringExtra("scope")
         val redirectUrl = intent.getStringExtra("redirectUrl")
         val clientKey = intent.getStringExtra("clientKey")
-        authorize(scope!!, redirectUrl!!, clientKey!!)
+        Log.d("TiktokLoginFlutterAct", "On create $scope $redirectUrl $clientKey")
+
+        if (scope != null && redirectUrl != null && clientKey != null) {
+            authorize(scope, redirectUrl, clientKey)
+        }
     }
 
     override fun onNewIntent(intent: Intent) {
@@ -50,7 +54,7 @@ class TikTokEntryActivity : Activity() {
     }
 
     fun authorize(scope: String, redirectUrl: String, clientKey: String) {
-        Log.d("TiktokLoginFlutterAct", "Authorize will start inside ${scope} ${redirectUrl} ${clientKey}")
+        Log.d("TiktokLoginFlutterAct", "Authorize will start inside $scope $redirectUrl $clientKey")
         val codeVerifier = PKCEUtils.generateCodeVerifier()
 
         // STEP 2: Create an AuthRequest and set parameters
