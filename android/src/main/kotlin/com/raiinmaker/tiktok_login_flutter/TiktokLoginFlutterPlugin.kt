@@ -90,7 +90,7 @@ class TiktokLoginFlutterPlugin : FlutterPlugin, MethodCallHandler, ActivityAware
         val intent = Intent(safeActivity, TikTokEntryActivity::class.java)
         intent.putExtra("scope", scope)
         intent.putExtra("redirectUrl", redirectUrl)
-        intent.putExtra("safeClientKey", safeClientKey)
+        intent.putExtra("clientKey", safeClientKey)
         safeActivity.startActivity(intent)
 
         /*if (safeActivity is TikTokEntryActivity) {
