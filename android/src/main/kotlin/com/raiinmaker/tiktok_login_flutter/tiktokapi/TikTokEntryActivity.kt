@@ -22,10 +22,10 @@ class TikTokEntryActivity : Activity() {
         super.onCreate(savedInstanceState)
         authApi = AuthApi(activity = this)
         handleAuthResponse(intent)
-        val scope = getIntent().getStringExtra("scope")
-        val redirectUrl = getIntent().getStringExtra("redirectUrl")
-        val clientKey = getIntent().getStringExtra("clientKey")
-        authorize(scope, redirectUrl, clientKey)
+        val scope = intent.getStringExtra("scope")
+        val redirectUrl = intent.getStringExtra("redirectUrl")
+        val clientKey = intent.getStringExtra("clientKey")
+        authorize(scope!!, redirectUrl!!, clientKey!!)
     }
 
     override fun onNewIntent(intent: Intent) {
