@@ -23,6 +23,7 @@ class TikTokEntryActivity : Activity() {
         super.onCreate(savedInstanceState)
         authApi = AuthApi(activity = this)
         handleAuthResponse(intent)
+        val value = getIntent().getStringExtra("key")
     }
 
     override fun onNewIntent(intent: Intent) {
