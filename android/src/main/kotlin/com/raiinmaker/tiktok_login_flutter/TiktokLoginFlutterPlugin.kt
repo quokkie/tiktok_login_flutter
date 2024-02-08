@@ -4,7 +4,6 @@ import android.app.Activity
 import android.content.Intent
 import android.util.Log
 import androidx.annotation.NonNull
-import androidx.core.content.ContextCompat.startActivity
 import com.raiinmaker.tiktok_login_flutter.tiktokapi.TikTokEntryActivity
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.embedding.engine.plugins.activity.ActivityAware
@@ -93,13 +92,6 @@ class TiktokLoginFlutterPlugin : FlutterPlugin, MethodCallHandler, ActivityAware
         intent.putExtra("redirectUrl", redirectUrl)
         intent.putExtra("safeClientKey", safeClientKey)
         safeActivity.startActivity(intent)
-
-        /*if (safeActivity is TikTokEntryActivity) {
-        Log.d("TiktokLoginFlutter", "Authorize will start inside")
-        safeActivity.authorize(scope, redirectUrl, safeClientKey)
-    } else {
-        Log.d("TiktokLoginFlutter", "Authorize will not start")
-    }*/
     }
 
     override fun onDetachedFromEngine(@NonNull binding: FlutterPlugin.FlutterPluginBinding) {
