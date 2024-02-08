@@ -14,7 +14,6 @@ class TikTokEntryActivity : Activity() {
 
     companion object {
         var result: MethodChannel.Result? = null
-        var redirectUrl: String? = null
     }
 
     private lateinit var authApi: AuthApi
@@ -23,7 +22,10 @@ class TikTokEntryActivity : Activity() {
         super.onCreate(savedInstanceState)
         authApi = AuthApi(activity = this)
         handleAuthResponse(intent)
-        val value = getIntent().getStringExtra("key")
+        val scope = getIntent().getStringExtra("scope")
+        val redirectUrl = getIntent().getStringExtra("redirectUrl")
+        val clientKey = getIntent().getStringExtra("clientKey")
+        authorize(scope, redirectUrl, clientKey)
     }
 
     override fun onNewIntent(intent: Intent) {
@@ -33,6 +35,8 @@ class TikTokEntryActivity : Activity() {
 
     private fun handleAuthResponse(intent: Intent) {
         Log.d("TiktokLoginFlutterAct", "Handle auth response")
+
+        val redirectUrl = getIntent().getStringExtra("redirectUrl")
         authApi.getAuthResponseFromIntent(intent, redirectUrl!!)?.let {
             if (it.authCode.isNotEmpty()) {
                 Log.d("TiktokLoginFlutterAct", "Did get auth code ${it.authCode}")
@@ -46,7 +50,7 @@ class TikTokEntryActivity : Activity() {
     }
 
     fun authorize(scope: String, redirectUrl: String, clientKey: String) {
-        Log.d("TiktokLoginFlutterAct", "Authorize will start inside")
+        Log.d("TiktokLoginFlutterAct", "Authorize will start inside ${scope} ${redirectUrl} ${clientKey}")
         val codeVerifier = PKCEUtils.generateCodeVerifier()
 
         // STEP 2: Create an AuthRequest and set parameters
