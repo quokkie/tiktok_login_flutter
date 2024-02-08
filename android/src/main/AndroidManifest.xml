@@ -5,9 +5,18 @@
         <package android:name="com.ss.android.ugc.trill" />
     </queries>
     <application>
+
         <activity
             android:name=".tiktokapi.TikTokEntryActivity"
-            android:exported="true">
+            android:exported="true"
+            android:launchMode="singleInstance">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="https" />
+                <data android:host="app.ramd.am"/>
+            </intent-filter>
         </activity>
     </application>
 </manifest>
