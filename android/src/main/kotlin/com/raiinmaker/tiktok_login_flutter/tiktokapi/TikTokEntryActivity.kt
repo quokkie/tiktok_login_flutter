@@ -17,7 +17,7 @@ class TikTokEntryActivity : Activity() {
     }
 
     private lateinit var authApi: AuthApi
-    private lateinit var redirectUrl: String
+    private var redirectUrl?: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
