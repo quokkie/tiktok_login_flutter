@@ -17,6 +17,7 @@ class TikTokEntryActivity : Activity() {
     }
 
     private lateinit var authApi: AuthApi
+    private lateinit var redirectUrl: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +29,7 @@ class TikTokEntryActivity : Activity() {
         Log.d("TiktokLoginFlutterAct", "On create $scope $redirectUrl $clientKey")
 
         if (scope != null && redirectUrl != null && clientKey != null) {
+            this.redirectUrl = redirectUrl
             authorize(scope, redirectUrl, clientKey)
         }
     }
@@ -38,10 +40,9 @@ class TikTokEntryActivity : Activity() {
     }
 
     private fun handleAuthResponse(intent: Intent) {
-        Log.d("TiktokLoginFlutterAct", "Handle auth response")
+        Log.d("TiktokLoginFlutterAct", "Handle auth response $intent $redirectUrl")
 
-        val redirectUrl = getIntent().getStringExtra("redirectUrl")
-        authApi.getAuthResponseFromIntent(intent, redirectUrl!!)?.let {
+        authApi.getAuthResponseFromIntent(intent, redirectUrl)?.let {
             Log.d("TiktokLoginFlutterAct", "Did get auth code ? ${it.authCode}")
             if (it.authCode.isNotEmpty()) {
                 Log.d("TiktokLoginFlutterAct", "Did get auth code ${it.authCode}")
