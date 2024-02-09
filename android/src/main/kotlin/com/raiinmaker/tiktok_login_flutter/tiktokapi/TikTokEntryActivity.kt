@@ -41,8 +41,9 @@ class TikTokEntryActivity : Activity() {
 
     private fun handleAuthResponse(intent: Intent) {
         Log.d("TiktokLoginFlutterAct", "Handle auth response $intent $redirectUrl")
-        if (redirectUrl != null) {
-            authApi.getAuthResponseFromIntent(intent, redirectUrl)?.let {
+        val safeRedirectUrl = redirectUrl ?: return
+        if (safeRedirectUrl != null) {
+            authApi.getAuthResponseFromIntent(intent, safeRedirectUrl)?.let {
                 Log.d("TiktokLoginFlutterAct", "Did get auth code ? ${it.authCode}")
                 if (it.authCode.isNotEmpty()) {
                     Log.d("TiktokLoginFlutterAct", "Did get auth code ${it.authCode}")
