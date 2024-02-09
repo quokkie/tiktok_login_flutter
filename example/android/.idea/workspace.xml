@@ -9,7 +9,9 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55a45eb4-ecc6-4319-8d6e-2e694f0d3630" name="Changes" comment="" />
+    <list default="true" id="55a45eb4-ecc6-4319-8d6e-2e694f0d3630" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../android/src/main/kotlin/com/raiinmaker/tiktok_login_flutter/tiktokapi/TikTokEntryActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../../android/src/main/kotlin/com/raiinmaker/tiktok_login_flutter/tiktokapi/TikTokEntryActivity.kt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
