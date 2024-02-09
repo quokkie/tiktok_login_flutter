@@ -41,17 +41,18 @@ class TikTokEntryActivity : Activity() {
 
     private fun handleAuthResponse(intent: Intent) {
         Log.d("TiktokLoginFlutterAct", "Handle auth response $intent $redirectUrl")
-
-        authApi.getAuthResponseFromIntent(intent, redirectUrl)?.let {
-            Log.d("TiktokLoginFlutterAct", "Did get auth code ? ${it.authCode}")
-            if (it.authCode.isNotEmpty()) {
-                Log.d("TiktokLoginFlutterAct", "Did get auth code ${it.authCode}")
-                result?.success(it.authCode)
-            } else if (it.errorCode != 0) {
-                Log.d("TiktokLoginFlutterAct", "Did get error ${it.errorMsg}")
-                result?.error(it.errorCode.toString(), it.errorMsg, it.authErrorDescription)
+        if (redirectUrl != null) {
+            authApi.getAuthResponseFromIntent(intent, redirectUrl)?.let {
+                Log.d("TiktokLoginFlutterAct", "Did get auth code ? ${it.authCode}")
+                if (it.authCode.isNotEmpty()) {
+                    Log.d("TiktokLoginFlutterAct", "Did get auth code ${it.authCode}")
+                    result?.success(it.authCode)
+                } else if (it.errorCode != 0) {
+                    Log.d("TiktokLoginFlutterAct", "Did get error ${it.errorMsg}")
+                    result?.error(it.errorCode.toString(), it.errorMsg, it.authErrorDescription)
+                }
+                this.finish()
             }
-            this.finish()
         }
     }
 
