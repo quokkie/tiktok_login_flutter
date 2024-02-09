@@ -86,19 +86,12 @@ class TiktokLoginFlutterPlugin : FlutterPlugin, MethodCallHandler, ActivityAware
             TikTokEntryActivity.result = result
         }
 
-        Log.d("TiktokLoginFlutter", "Authorize will start ${safeActivity is TikTokEntryActivity}, $safeActivity")
+        Log.d("TiktokLoginFlutter", "Authorize will start, $safeActivity")
         val intent = Intent(safeActivity, TikTokEntryActivity::class.java)
         intent.putExtra("scope", scope)
         intent.putExtra("redirectUrl", redirectUrl)
         intent.putExtra("clientKey", safeClientKey)
         safeActivity.startActivity(intent)
-
-        /*if (safeActivity is TikTokEntryActivity) {
-        Log.d("TiktokLoginFlutter", "Authorize will start inside")
-        safeActivity.authorize(scope, redirectUrl, safeClientKey)
-    } else {
-        Log.d("TiktokLoginFlutter", "Authorize will not start")
-    }*/
     }
 
     override fun onDetachedFromEngine(@NonNull binding: FlutterPlugin.FlutterPluginBinding) {
