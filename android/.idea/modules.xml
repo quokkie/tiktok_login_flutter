@@ -5,7 +5,6 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/tiktok_login_flutter.iml" filepath="$PROJECT_DIR$/.idea/modules/tiktok_login_flutter.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/tiktok_login_flutter.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/tiktok_login_flutter.androidTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/tiktok_login_flutter.main.iml" filepath="$PROJECT_DIR$/.idea/modules/tiktok_login_flutter.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tiktok_login_flutter.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/tiktok_login_flutter.unitTest.iml" />
     </modules>
   </component>
 </project>
